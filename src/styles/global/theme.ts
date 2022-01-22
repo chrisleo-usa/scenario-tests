@@ -6,7 +6,7 @@ const theme = extendTheme({
     gray: {
       450: '#969CB3'
     }
-  },
+  }
 })
 
 export default theme
