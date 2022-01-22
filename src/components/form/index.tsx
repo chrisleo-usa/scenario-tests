@@ -1,4 +1,6 @@
-import React, { useState } from "react"
+import { useState } from "react"
+import { Box, Button, Flex } from "@chakra-ui/react"
+import { BlockFields } from "../block-fields"
 
 export const Form = () => {
   const [inputFields, setInputFields] = useState([
@@ -16,37 +18,28 @@ export const Form = () => {
   }
 
   return (
-    <form>
+    <Flex 
+      direction='column'
+      gap={6}  
+    >
       {inputFields.map((blockFields, index) => (
-        <React.Fragment key={index}>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <label>Funcionalidade: </label>
-            <input type="text"/>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <label>Cenário de teste: </label>
-            <input type="text"/>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <label>Descrição: </label>
-            <textarea />
-          </div>
-          <button
-            type="button"
-            onClick={() => handleRemoveField(index)}
-          >
-            REMOVE
-          </button>
-        </React.Fragment>
+        <BlockFields 
+          key={index}
+          onClickRemoveField={() => handleRemoveField(index)}
+        />
       ))}
-      <button
-        type="button"
-        onClick={handleAddField}
-      >
-        ADD
-      </button>
-    </form>
+      <Box>
+        <Button
+          size='md'
+          bg='orange.400'
+          color='white'
+          variant='solid'
+          _focus={{ border: 'none' }}
+          onClick={handleAddField}
+        >
+          Novo cenário
+        </Button>
+      </Box>
+    </Flex>
   )
 }
