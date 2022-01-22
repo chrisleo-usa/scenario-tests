@@ -1,4 +1,4 @@
-import { Flex, FlexProps, Heading, Image } from '@chakra-ui/react'
+import { Container, Flex, FlexProps, Heading, Image } from '@chakra-ui/react'
 
 interface HeaderProps extends FlexProps {}
 
@@ -10,13 +10,14 @@ export const Header = ({ ...rest }: HeaderProps) => {
         bg="white"
         borderBottom="2px"
         borderBottomColor="orange.200"
-        alignItems="center"
         {...rest}
       >
-        <Image boxSize="50px" src="/pslogo.png" />
-        <Heading as="h2" size="lg" mx="auto">
-          Cenário de Testes - Team Sydney
-        </Heading>
+        <Container maxW="container.lg" display="flex" alignItems="center">
+          <Image boxSize="50px" src="/pslogo.png" />
+          <Heading as="h2" size="lg" mx="auto">
+            Cenários de Testes - Team Sydney
+          </Heading>
+        </Container>
       </Flex>
     </header>
   )
