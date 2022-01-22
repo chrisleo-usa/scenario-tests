@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Box, Button, Flex } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import { BlockFields } from '../block-fields'
+import { Button } from '../button'
 
 export const Form = () => {
   const [inputFields, setInputFields] = useState([
@@ -29,16 +30,7 @@ export const Form = () => {
         />
       ))}
       <Box>
-        <Button
-          size="md"
-          bg="orange.400"
-          color="white"
-          variant="solid"
-          _focus={{ border: 'none' }}
-          onClick={handleAddField}
-        >
-          Novo cenário
-        </Button>
+        <Button text="Novo cenário" onClick={handleAddField} />
       </Box>
     </Flex>
   )

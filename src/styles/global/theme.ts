@@ -6,6 +6,13 @@ const theme = extendTheme({
     gray: {
       450: '#969CB3'
     }
+  },
+  styles: {
+    global: {
+      body: {
+        bg: 'ice'
+      }
+    }
   }
 })
 
