@@ -1,14 +1,17 @@
-import { useState } from "react"
-import { Box, Button, Flex } from "@chakra-ui/react"
-import { BlockFields } from "../block-fields"
+import { useState } from 'react'
+import { Box, Button, Flex } from '@chakra-ui/react'
+import { BlockFields } from '../block-fields'
 
 export const Form = () => {
   const [inputFields, setInputFields] = useState([
-    {functionality: '', testScenario: '', description: ''}
+    { functionality: '', testScenario: '', description: '' }
   ])
 
   const handleAddField = () => {
-    setInputFields([...inputFields, {functionality: '', testScenario: '', description: ''} ])
+    setInputFields([
+      ...inputFields,
+      { functionality: '', testScenario: '', description: '' }
+    ])
   }
 
   const handleRemoveField = (index: number) => {
@@ -18,22 +21,19 @@ export const Form = () => {
   }
 
   return (
-    <Flex 
-      direction='column'
-      gap={6}  
-    >
+    <Flex direction="column" gap={6}>
       {inputFields.map((blockFields, index) => (
-        <BlockFields 
+        <BlockFields
           key={index}
           onClickRemoveField={() => handleRemoveField(index)}
         />
       ))}
       <Box>
         <Button
-          size='md'
-          bg='orange.400'
-          color='white'
-          variant='solid'
+          size="md"
+          bg="orange.400"
+          color="white"
+          variant="solid"
           _focus={{ border: 'none' }}
           onClick={handleAddField}
         >
