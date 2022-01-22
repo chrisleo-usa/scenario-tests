@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Box, Flex } from '@chakra-ui/react'
 import { BlockFields } from '../block-fields'
-import { Button } from '../button'
+import { PrimaryButton } from '../primary-button'
 
-export const Form = () => {
+export const FieldsList = () => {
   const [inputFields, setInputFields] = useState([
     { functionality: '', testScenario: '', description: '' }
   ])
@@ -30,7 +30,7 @@ export const Form = () => {
         />
       ))}
       <Box>
-        <Button text="Novo cenário" onClick={handleAddField} />
+        <PrimaryButton text="Novo cenário" onClick={handleAddField} />
       </Box>
     </Flex>
   )

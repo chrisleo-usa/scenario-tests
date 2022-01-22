@@ -3,15 +3,17 @@ import {
   ButtonProps as ChakraButtonProps
 } from '@chakra-ui/react'
 
-interface ButtonProps extends ChakraButtonProps {
+interface PrimaryButtonProps extends ChakraButtonProps {
   text: string
 }
 
-export const Button = ({ text, ...rest }: ButtonProps) => {
+export const PrimaryButton = ({ text, ...rest }: PrimaryButtonProps) => {
   return (
     <ChakraButton
       size="md"
       bg="orange.400"
+      border="2px"
+      borderColor="orange.400"
       color="white"
       variant="solid"
       _hover={{
