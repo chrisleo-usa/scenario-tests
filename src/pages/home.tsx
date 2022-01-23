@@ -50,7 +50,7 @@ const Home = ({ setDarkMode, darkMode }: HomeProps) => {
             <Icon
               as={BsMoonStarsFill}
               fontSize={24}
-              color={darkMode ? 'ice' : 'black'}
+              color={darkMode ? 'ice' : 'gray.450'}
             />
           </Flex>
         </Flex>
