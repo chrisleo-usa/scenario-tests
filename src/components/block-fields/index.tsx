@@ -13,6 +13,8 @@ import { ExampleModal } from '../example-modal'
 import { Input } from '../input'
 import { TextArea } from '../text-area'
 import { DangerButton } from '../danger-button'
+import { useContext } from 'react'
+import { DarkModeContext } from '../../_App'
 
 interface BlockFieldsProps extends FlexProps {
   onClickRemoveField: () => void
@@ -23,6 +25,7 @@ export const BlockFields = ({
   ...rest
 }: BlockFieldsProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const darkMode = useContext(DarkModeContext)
 
   return (
     <Flex gap={8} {...rest}>
@@ -32,7 +35,7 @@ export const BlockFields = ({
         gap={4}
         p={4}
         border="2px"
-        borderColor="orange.200"
+        borderColor={darkMode ? 'orangeNeon' : 'orange.200'}
         borderRadius={4}
       >
         <Input label="Funcionalidades: " />
@@ -42,8 +45,19 @@ export const BlockFields = ({
       <IconButton
         aria-label="Remove block field"
         bg="white"
-        _hover={{ backgroundColor: 'orange.300' }}
-        _focus={{ border: 'none' }}
+        color={darkMode ? 'redNeon' : 'black'}
+        border="2px"
+        borderColor={darkMode ? 'redNeon' : 'white'}
+        _hover={{
+          backgroundColor: darkMode ? 'redNeon' : 'red.300',
+          borderColor: darkMode ? 'redNeon' : 'red.300',
+          color: 'white'
+        }}
+        _focus={{
+          backgroundColor: darkMode ? 'redNeon' : 'red.300',
+          borderColor: darkMode ? 'redNeon' : 'red.300',
+          color: 'white'
+        }}
         onClick={onOpen}
       >
         <Icon as={FiTrash} fontSize={20} />
@@ -56,14 +70,7 @@ export const BlockFields = ({
           </Text>
 
           <Flex justifyContent="space-between" mb={4}>
-            <PrimaryButton
-              size="md"
-              bg="orange.400"
-              color="white"
-              variant="solid"
-              text="Continuar"
-              onClick={onClickRemoveField}
-            />
+            <PrimaryButton text="Continuar" onClick={onClickRemoveField} />
             <DangerButton text="Cancelar" onClick={onClose} />
           </Flex>
         </ModalBody>
